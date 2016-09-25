@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import javax.swing.JOptionPane;
+
 import Mp3.Jlayer;
 
 public class SocketServer {
@@ -77,8 +78,7 @@ public class SocketServer {
 		        }
 		        
 				JOptionPane.showMessageDialog(null, "Arquivo recebido com sucesso!");				
-				Jlayer player = new Jlayer();
-				player.playerMp3(dirFile);
+				new Jlayer(dirFile);
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
