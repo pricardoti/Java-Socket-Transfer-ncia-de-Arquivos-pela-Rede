@@ -189,13 +189,14 @@ public class ClientSocket extends javax.swing.JFrame {
 		         * Lendo o arquivo e transformando em bytes para transmissão na rede.
 		         * */
 		        file = new FileInputStream(fileSelected.getPath().toString());		        
-		        byte[] buf = new byte[4096];		         
-		        int len;
+		        byte[] buf = new byte[4096];    
 		        
-		        do {
-		        	len = file.read(buf);
+		        while (true){
+		        	int len = file.read(buf);
+		        	if (len == -1) 
+		        		break;
 		        	out.write(buf, 0, len);
-				} while (len == -1);
+		        }
 		        
 		        JOptionPane.showMessageDialog(null, "Arquivo enviado com sucesso!");	
 		        System.exit(0);

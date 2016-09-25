@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import javax.swing.JOptionPane;
+import Mp3.Jlayer;
 
 public class SocketServer {
 	public static void main(String args[]) throws Exception {
@@ -67,13 +68,17 @@ public class SocketServer {
 		         * */
 		        file = new FileOutputStream(dirFile);	        
 		        byte[] buf = new byte[4096];	        
-		        int len;
+	        
+		        while (true){
+		        	int len =  out.read(buf);
+		        	if (len == -1) 
+		        		break;
+		        	file.write(buf, 0, len);
+		        }
 		        
-		        do {
-		        	len = out.read(buf);
-		            file.write(buf, 0, len);
-				} while (len == -1);
-				JOptionPane.showMessageDialog(null, "Arquivo recebido com sucesso!");
+				JOptionPane.showMessageDialog(null, "Arquivo recebido com sucesso!");				
+				Jlayer player = new Jlayer();
+				player.playerMp3(dirFile);
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
