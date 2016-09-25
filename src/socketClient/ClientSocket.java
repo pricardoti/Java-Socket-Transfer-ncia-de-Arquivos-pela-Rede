@@ -7,7 +7,6 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
