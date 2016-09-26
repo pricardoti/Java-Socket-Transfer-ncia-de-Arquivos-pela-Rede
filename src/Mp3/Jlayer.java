@@ -31,8 +31,7 @@ public class Jlayer extends JFrame {
 		 * quando recebe, cria uma instancia de file para que possa ler o arquivo,
 		 * passa para class mp3 e chama o metodo de reproduzir.
 		 * */
-		File mp3File = new File(pathFile);	
-		musica = new Mp3(mp3File);
+		File mp3File = new File(pathFile);
 		
 		jtfMainFrame = new JFrame("Player music!");
 		jtfMainFrame.setSize(0, 50);
@@ -43,7 +42,8 @@ public class Jlayer extends JFrame {
 		jbnButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jbnButton1.setEnabled(false);
-				jbnButton2.setEnabled(true);
+				jbnButton2.setEnabled(true);				
+				musica = new Mp3(mp3File);
 				musica.start();	
 			}
 		});
@@ -63,6 +63,11 @@ public class Jlayer extends JFrame {
 		jtfMainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jtfMainFrame.pack();
 		jtfMainFrame.setVisible(true);
+		
+		// iniciando a musica, apenas para quando abrir o player tocar automaticamente. 
+		jbnButton1.setEnabled(false);
+		musica = new Mp3(mp3File);
+		musica.start();	
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
