@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-
 import javax.swing.JOptionPane;
-
 import Mp3.Jlayer;
 
 public class SocketServer {
@@ -39,7 +37,6 @@ public class SocketServer {
 		
 	}
 	
-
 	public static class getFileServer extends Thread {		
 		private Socket socket;
 		
